@@ -1,0 +1,23 @@
+services:
+  templeos:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    ports:
+      - "${HOST_PORT:-8080}:8080"
+    volumes:
+      - templeos-data:/data
+    environment:
+      QEMU_RAM: ${QEMU_RAM:-2048}
+      QEMU_CORES: ${QEMU_CORES:-2}
+      QEMU_KVM: ${QEMU_KVM:-0}
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER:-}
+      BASIC_AUTH_PASS: ${BASIC_AUTH_PASS:-}
+    restart: unless-stopped
+    # On a Linux host with KVM support: uncomment this, and set QEMU_KVM=1
+    # above, for dramatically better performance.
+    # devices:
+    #   - /dev/kvm
+
+volumes:
+  templeos-data:

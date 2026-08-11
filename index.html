@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TempleOS</title>
+    <meta name="description" content="Interact with the real, unmodified TempleOS 5.03 running in a server-hosted QEMU VM, streamed to your browser over VNC." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+    <main>
+        <section class="emulator-panel">
+            <div class="toolbar" role="toolbar" aria-label="Session controls">
+                <button id="btn-start" type="button">▶ Connect</button>
+                <button id="btn-pause" type="button" disabled>⏸ Pause</button>
+                <button id="btn-restart" type="button" disabled>⟳ Restart</button>
+                <button id="btn-fullscreen" type="button" disabled>⛶ Fullscreen</button>
+                <button id="btn-ctrlaltdel" type="button" disabled title="Send Ctrl+Alt+Delete to the guest OS">⌨ Ctrl+Alt+Del</button>
+                <span class="status" id="status-text">Idle</span>
+            </div>
+
+            <div class="screen-wrap" id="screen-wrap">
+                <!-- noVNC's RFB client attaches its own canvas in here. -->
+                <div id="screen_container"></div>
+
+                <div class="overlay" id="overlay">
+                    <div class="overlay-inner">
+                        <p id="overlay-message">
+                            Press <strong>Connect</strong> to join the shared TempleOS session.
+                        </p>
+                        <pre class="error-box" id="error-box" hidden></pre>
+                    </div>
+                </div>
+            </div>
+
+            <p class="hint">
+                Click the screen to send it your keyboard/mouse. On first boot you'll see
+                TempleOS's own real boot-time prompts asking where its CD-ROM and hard disk are &mdash;
+                that's genuine, unmodified OS behavior. See the README for the exact answers.
+            </p>
+        </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

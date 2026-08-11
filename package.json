@@ -1,0 +1,24 @@
+{
+  "name": "templeos-web",
+  "version": "2.0.0",
+  "description": "Boot the real, current TempleOS 5.03 in a server-hosted QEMU VM and interact with it in the browser over VNC/noVNC.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@novnc/novnc": "^1.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^7.3.6"
+  }
+}
