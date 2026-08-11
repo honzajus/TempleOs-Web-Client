@@ -20,8 +20,8 @@
 Requires [Docker](https://www.docker.com/) and Docker Compose.
 
 ```bash
-git clone https://github.com/honzajus/templeos-web.git
-cd templeos-web
+git clone https://github.com/honzajus/TempleOs-Web-Client.git
+cd TempleOs-Web-Client
 docker compose up --build
 ```
 
