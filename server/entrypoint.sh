@@ -106,6 +106,7 @@ qemu-system-x86_64 \
     -drive if=ide,format=qcow2,file="$DISK_PATH" \
     -cdrom "$ISO_PATH" \
     -boot order=cd \
+    -usb -device usb-tablet \
     -vnc 0.0.0.0:0 \
     -monitor unix:/tmp/qemu-monitor.sock,server,nowait \
     -display none &

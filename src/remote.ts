@@ -29,6 +29,12 @@ export class RemoteDisplay {
         rfb.scaleViewport = true;
         rfb.clipViewport = false;
         rfb.resizeSession = false;
+        // TempleOS is a simple, mostly-text/flat-color 640x480 display -- low
+        // compression costs little bandwidth here but noticeably cuts server-side
+        // encode latency, which matters more than image quality for pointer/keyboard
+        // responsiveness over TCG (software-emulated) QEMU.
+        rfb.compressionLevel = 1;
+        rfb.qualityLevel = 9;
 
         rfb.addEventListener("connect", () => {
             this.callbacks.onConnected();
