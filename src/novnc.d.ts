@@ -33,7 +33,7 @@ declare module "@novnc/novnc" {
         focus(): void;
         blur(): void;
         sendCtrlAltDel(): void;
-        sendKey(keysym: number, code: string, down?: boolean): void;
+        sendKey(keysym: number, code: string | null, down?: boolean): void;
         clipboardPasteFrom(text: string): void;
         machineShutdown(): void;
         machineReboot(): void;

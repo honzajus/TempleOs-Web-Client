@@ -18,6 +18,8 @@
                 <button id="btn-restart" type="button" disabled>⟳ Restart</button>
                 <button id="btn-fullscreen" type="button" disabled>⛶ Fullscreen</button>
                 <button id="btn-ctrlaltdel" type="button" disabled title="Send Ctrl+Alt+Delete to the guest OS">⌨ Ctrl+Alt+Del</button>
+                <button id="btn-games" type="button" disabled title="Runs Cd(&quot;::/Demo/Games&quot;); Dir; in the real TempleOS shell">🎮 Games</button>
+                <button id="btn-paste" type="button" disabled title="Types your clipboard text into TempleOS as real keystrokes">📋 Paste</button>
                 <span class="status" id="status-text">Idle</span>
             </div>
 
@@ -35,10 +37,21 @@
                 </div>
             </div>
 
+            <!--
+                Real browsers only fire the native `paste` event on an
+                editable element. This textarea exists purely to genuinely
+                receive that event when Ctrl/Cmd+V is pressed (focus is
+                redirected here for the keystroke); its content is then typed
+                into TempleOS as real key events and it's cleared right away.
+            -->
+            <textarea id="paste-catcher" aria-hidden="true" tabindex="-1"></textarea>
+
             <p class="hint">
-                Click the screen to send it your keyboard/mouse. On first boot you'll see
-                TempleOS's own real boot-time prompts asking where its CD-ROM and hard disk are &mdash;
-                that's genuine, unmodified OS behavior. See the README for the exact answers.
+                Click the screen to send it your keyboard/mouse. <kbd>Ctrl+V</kbd> (with the screen
+                focused) types your clipboard text into TempleOS as real keystrokes. On first boot
+                you'll see TempleOS's own real boot-time prompts asking where its CD-ROM and hard
+                disk are &mdash; that's genuine, unmodified OS behavior. See the README for the
+                exact answers.
             </p>
         </section>
     </main>
