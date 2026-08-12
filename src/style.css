@@ -61,13 +61,21 @@ main {
 }
 
 .toolbar button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     background: #1c2129;
     color: var(--text);
     border: 1px solid var(--panel-border);
     border-radius: 6px;
     padding: 0.45rem 0.8rem;
     font-size: 0.85rem;
+    font-family: inherit;
     cursor: pointer;
+}
+
+.toolbar button svg {
+    flex: none;
 }
 
 .toolbar button:hover:not(:disabled) {
